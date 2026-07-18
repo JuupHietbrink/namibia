@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namibië 2026 · Valerie &amp; Juup</title>
+  <meta name="description" content="Reisplanning Namibië 16 september — 2 oktober 2026. Van Windhoek via Sossusvlei, Swakopmund en Spitzkoppe naar Etosha en terug." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-overlay">
+      <p class="eyebrow">Valerie &amp; Juup · Roadtrip 2026</p>
+      <h1>Namibië</h1>
+      <p class="dates">16 september — 2 oktober 2026</p>
+      <p class="tagline">Duinen, sterrenhemel &amp; safari — 17 dagen door het zuiden van Afrika 🦁</p>
+      <a class="cta" href="#overzicht">Bekijk de planning ↓</a>
+    </div>
+  </header>
+
+  <nav class="topnav">
+    <a href="#overzicht">Overzicht</a>
+    <a href="#kaart">Kaart</a>
+    <a href="#vluchten">Vluchten</a>
+    <a href="#windhoek">Windhoek</a>
+    <a href="#sesriem">Sesriem</a>
+    <a href="#swakopmund">Swakopmund</a>
+    <a href="#spitzkoppe">Spitzkoppe</a>
+    <a href="#erongo">Erongo</a>
+    <a href="#etosha-west">Etosha W</a>
+    <a href="#etosha-oost">Etosha O</a>
+    <a href="#otjiwarongo">Otjiwarongo</a>
+    <a href="#terug">Terugreis</a>
+    <a href="#reserveren">Reserveren</a>
+    <a href="#praktisch">Praktisch</a>
+    <a href="#nood">Nood &amp; Adressen</a>
+  </nav>
+
+  <main>
+    <section id="overzicht" class="section">
+      <h2>Overzicht van de reis</h2>
+      <div class="overview-grid">
+        <div class="card">
+          <h3>✈️ Heen &amp; terug</h3>
+          <p>Vlucht via London Heathrow &amp; Johannesburg naar Windhoek met British Airways. Heen op 16 sep, terug landt 2 oktober op Schiphol.</p>
+        </div>
+        <div class="card">
+          <h3>🚗 Ter plaatse</h3>
+          <p>Huurauto via <strong>Bushbundu Car Rental</strong>. Ophalen op 17 sep om 13:30 (transit via autoverhuur ±45 min vanaf luchthaven). Inleveren 1 okt om 13:30.</p>
+        </div>
+        <div class="card">
+          <h3>⛺️ Verblijf</h3>
+          <p>Combinatie van campings en lodges. Van dakkamers en tenten in Sossusvlei en Spitzkoppe tot half-board bij Mokuti en Aloegrove.</p>
+        </div>
+        <div class="card">
+          <h3>🦁 Hoogtepunten</h3>
+          <p>Sossusvlei &amp; Deadvlei, Sandwich Harbour, Spitzkoppe arch rock, San Living Museum, Etosha game drives, en de safari lodge bij Otjiwarongo.</p>
+        </div>
+      </div>
+
+      <div class="timeline nine">
+        <div class="t-item"><span>17</span><p>Windhoek</p></div>
+        <div class="t-item"><span>18-19</span><p>Sossusvlei</p></div>
+        <div class="t-item"><span>20-21</span><p>Swakopmund</p></div>
+        <div class="t-item"><span>22</span><p>Spitzkoppe</p></div>
+        <div class="t-item"><span>23-24</span><p>Erongo</p></div>
+        <div class="t-item"><span>25-27</span><p>Etosha W</p></div>
+        <div class="t-item"><span>28-29</span><p>Etosha O</p></div>
+        <div class="t-item"><span>30</span><p>Otjiwarongo</p></div>
+        <div class="t-item"><span>1-2</span><p>Terugreis</p></div>
+      </div>
+
+      <div class="tip">💡 <strong>Tip:</strong> De richting van de reis (Sossusvlei → kust → Etosha → terug via Otjiwarongo) is bewust gekozen zodat de laatste dagen dichter bij Windhoek liggen — de kans op strakke rijdagen op het einde is klein.</div>
+    </section>
+
+    <section id="kaart" class="section map-section">
+      <h2>🗺️ De route op de kaart</h2>
+      <p class="day-intro">Elke stop staat op de kaart met het dag-nummer. Klik een marker aan voor de datum en de highlights van die stop. De lijn volgt de rijroute in volgorde — een grote ronde met de klok mee door Namibië.</p>
+
+      <div id="trip-map" aria-label="Kaart van Namibië met alle stops van de reis"></div>
+
+      <div class="map-legend">
+        <div class="map-legend-item"><span class="map-legend-num" style="background:#2d7a3f">✈</span> Aankomst / vertrek (Windhoek)</div>
+        <div class="map-legend-item"><span class="map-legend-num">1</span> Windhoek (Kuiseb House) · 17 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">2</span> Sesriem / Sossusvlei · 18-19 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">3</span> Swakopmund · 20-21 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">4</span> Spitzkoppe · 22 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">5</span> Erongo / Omandumba · 23-24 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">6</span> Etosha West (Okaukuejo) · 25-27 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">7</span> Etosha Oost (Mokuti) · 28-29 sep</div>
+        <div class="map-legend-item"><span class="map-legend-num">8</span> Aloegrove (Otjiwarongo) · 30 sep</div>
+      </div>
+
+      <div class="tip">🗺️ <strong>Kaart-tip:</strong> Op je telefoon werkt de kaart ook offline goed als je de <em>Maps.me</em> app installeert en de Namibia-kaart download. Handig bij de vele stukken zonder bereik.</div>
+    </section>
+
+    <section id="vluchten" class="section">
+      <h2>✈️ Vluchten &amp; transfers</h2>
+      <p class="day-intro">Alles op British Airways via London Heathrow en Johannesburg. Op de heenreis is Amsterdam → Heathrow de eerste vlucht; op de terugreis vliegen we via Heathrow naar Amsterdam.</p>
+
+      <div class="flight-grid">
+        <div class="flight-card">
+          <h4>🛫 Heenreis · woensdag 16 &amp; donderdag 17 september</h4>
+          <ul class="schedule tight">
+            <li><strong>15:29</strong> — 🚆 Trein Houten → Schiphol (aankomst 16:27).</li>
+            <li><strong>19:25 → 19:40</strong> — ✈️ <strong>BA439</strong> Amsterdam AMS → London Heathrow LHR · 1u15m.</li>
+            <li><strong>21:20 → 09:25 (17/9)</strong> — ✈️ <strong>BA57</strong> London Heathrow LHR → Johannesburg JNB · 11u5m (nachtvlucht).</li>
+            <li><strong>10:40 → 12:50</strong> — ✈️ <strong>BA6307</strong> Johannesburg JNB → Windhoek WDH · 2u10m.</li>
+            <li><strong>13:30</strong> — 🚗 Auto ophalen bij <strong>Bushbundu Car Rental</strong> (transit vanaf de luchthaven ±45 min).</li>
+          </ul>
+        </div>
+
+        <div class="flight-card">
+          <h4>🛬 Terugreis · donderdag 1 &amp; vrijdag 2 oktober</h4>
+          <ul class="schedule tight">
+            <li><strong>10:00</strong> — Uitchecken Aloegrove Safari Lodge (Otjiwarongo).</li>
+            <li><strong>~10:30-13:00</strong> — 🚗 ±3u / 291 km naar Windhoek. Rond <strong>13:30</strong> de auto inleveren bij Bushbundu, daarna transit naar de luchthaven.</li>
+            <li><strong>18:20 → 20:10</strong> — ✈️ <strong>BA6312</strong> Windhoek WDH → Johannesburg JNB · 1u50m.</li>
+            <li><strong>21:15 → 07:30 (2/10)</strong> — ✈️ <strong>BA54</strong> Johannesburg JNB → London Heathrow LHR · 11u15m (nachtvlucht).</li>
+            <li><strong>11:40 → 14:00</strong> — ✈️ <strong>BA432</strong> London Heathrow LHR → Amsterdam AMS · 1u20m. 🏡</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tip">⚠️ <strong>Transit-tip:</strong> Bagage doorchecken tot Windhoek en tot Amsterdam, dubbelcheck bij BA of dat kan met een codeshare op de JNB↔WDH-vlucht (BA-nummer, uitgevoerd door partner). Zo niet: reken op ±2 uur transit-tijd in Johannesburg.</div>
+      <div class="tip">💡 <strong>Auto ophalen:</strong> Bushbundu haalt je op bij Hosea Kutako Airport (Windhoek). ±45 min naar hun depot, papierwerk + inspectie, dan de sleutels. Reken op ±2 uur tussen landen en écht wegrijden.</div>
+    </section>
+
+    <section id="windhoek" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 1</span>
+        <h2>Donderdag 17 september — Aankomst Windhoek</h2>
+      </div>
+      <p class="day-intro">Landen, auto ophalen, boodschappen doen en een rustige eerste avond in Windhoek. Nog geen lange rijdagen — morgen begint het écht.</p>
+      <ul class="schedule">
+        <li><strong>12:50</strong> — Landing Windhoek (Hosea Kutako Airport).</li>
+        <li><strong>13:30</strong> — Auto ophalen bij <strong>Bushbundu Car Rental</strong> (transit ±45 min).</li>
+        <li><strong>~15:30</strong> — Boodschappen op de <strong>Post Street Mall</strong> in centrum Windhoek: water, snacks, koelbox-vulling, simkaart (MTC of Telecom Namibia).</li>
+        <li><strong>~17:00</strong> — Check-in bij <strong>🌛 Kuiseb House</strong> (check-in tussen 14:00-20:00). Uitpakken, koelbox laden, kaartje bekijken voor morgen.</li>
+        <li><strong>19:00</strong> — Diner. Klassiekers in Windhoek: <em>Joe's Beerhouse</em> (Namibisch/Duits, gezellig en toeristisch), <em>The Stellenbosch Wine Bar &amp; Bistro</em> (fijner, Zuid-Afrikaanse wijnen), <em>Leo's at the Castle</em> (uitzicht).</li>
+        <li><strong>21:30</strong> — Vroeg naar bed. Morgen 4,5 uur rijden en check-in in Sesriem.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🛒 Boodschappen &amp; simkaart in Windhoek</h4>
+        <ul>
+          <li><strong>Wecke &amp; Voigts</strong> of <strong>Checkers</strong> in Wernhil Park / Maerua Mall — grote supermarkt met alles.</li>
+          <li><strong>MTC-shop</strong> op Post Street Mall of in Maerua Mall — data-simkaart ±NAD 100, met ~5-10 GB. Paspoort meenemen (registratieplicht).</li>
+          <li><strong>Cash</strong> — pin bij Standard Bank of FNB. Namibische dollar (NAD) is gekoppeld aan de rand (ZAR) 1-op-1. In veel plaatsen kun je pinnen, maar cash is fijn voor campings en tips.</li>
+          <li><strong>Water</strong> — koop een grote 5L-fles per persoon + herbruikbare drinkflessen. Leidingwater in Windhoek is meestal veilig, maar op remote locaties fles-water aanhouden.</li>
+        </ul>
+      </div>
+
+      <div class="tip">💡 <strong>Post Street Mall</strong> is de voetgangersstraat in centrum Windhoek — leuk om even te lopen, curio-markt met houtsnijwerk, en makkelijk pinnen. Overdag prima; 's avonds na sluiting van de winkels minder aantrekkelijk.</div>
+    </section>
+
+    <section id="sesriem" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 2 &amp; 3</span>
+        <h2>Vrijdag 18 &amp; zaterdag 19 september — Sesriem &amp; Sossusvlei</h2>
+      </div>
+      <p class="day-intro">Twee nachten in het duinenland. Vrijdag rijden we door naar Sossus Oasis; zaterdag verhuizen we (kort) naar Little Sossus en gaat de hele dag op in Sossusvlei — Dune 45, Deadvlei, Big Daddy, Sesriem Canyon.</p>
+
+      <ul class="schedule">
+        <li><strong>Vr 18 · 06:00</strong> — Uitchecken Kuiseb House (check-out 06:00-10:00).</li>
+        <li><strong>Vr 18 · 06:30</strong> — 🚗 <strong>4,5 uur / 338 km</strong> Windhoek → Sesriem. Grotendeels op de <strong>C26 → D1275 → C24 → C19</strong>. Neem het als een échte roadtrip-dag: koffie in Windhoek, pauze bij <em>Solitaire Bakery</em> (verse appeltaart, iconisch pomp-decor).</li>
+        <li><strong>Vr 18 · 14:00</strong> — Check-in <strong>🌛 Sossus Oasis Campsite</strong> (14:00-18:00). Kamperen naast de Sesriem-poort — makkelijk voor sunrise.</li>
+        <li><strong>Vr 18 · middag</strong> — Optioneel: <strong>Sesriem Canyon</strong> (±4 km van de camping). Korte afdaling in een spleet die de Tsauchab-rivier heeft uitgesneden. Zonsondergang op een van de <em>view decks</em> van de camping.</li>
+        <li><strong>Za 19 · 06:00</strong> — Uitchecken Sossus Oasis (check-out 06:00-10:00). Ontbijt to-go.</li>
+        <li><strong>Za 19 · 06:15</strong> — 🌅 <strong>Sesriem Gate</strong> opent bij zonsopgang. Rijden richting Sossusvlei — 60 km asfalt naar de laatste 4 km <strong>4WD-only</strong> (of shuttle bij het 2WD-parkeerplaats).</li>
+        <li><strong>Za 19 · 07:00</strong> — <strong>Dune 45</strong> — de klassieke sunrise-duin. Klim de graat op (30-45 min), fotomoment.</li>
+        <li><strong>Za 19 · 08:30</strong> — <strong>Deadvlei</strong> — de dode camelthorn-bomen op witte klei tussen rode duinen. ±1 km wandelen vanaf het parkeerterrein. Beste licht: 8-10 uur.</li>
+        <li><strong>Za 19 · 10:30</strong> — Optioneel <strong>Big Daddy</strong> (325 m, ±1 uur klim, glijden naar beneden in Deadvlei) of iets kleiner <strong>Big Mama</strong>. Alleen bij hitte-tolerantie.</li>
+        <li><strong>Za 19 · 12:30</strong> — Terug bij de auto, richting Sesriem. Lunch bij de camping of onderweg.</li>
+        <li><strong>Za 19 · 14:00</strong> — 🚗 <strong>0,5 uur / 39 km</strong> naar <strong>🌛 Little Sossus Campsite</strong> (check-in 14:00-19:00). Douchen, chillen.</li>
+        <li><strong>Za 19 · 17:30</strong> — Optioneel: sundowner met uitzicht — <strong>Elim Dune</strong> (bij Sesriem) of gewoon bij de camping.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🏜️ Sossusvlei praktisch</h4>
+        <ul>
+          <li><strong>Toegangspoort:</strong> Sesriem Gate — <em>gate opent bij zonsopgang</em>. Als je binnen het park slaapt (Sossus Oasis is <em>buiten</em>) mag je een uur eerder. Sossus Dune Lodge slaapt binnen de gate.</li>
+          <li><strong>Wegen:</strong> 60 km asfalt van gate tot 2WD-parkeerplaats. Laatste 4 km naar Sossusvlei/Deadvlei: <strong>diep zand — alleen 4WD met lucht in de banden verlagen</strong>. Zonder 4WD: shuttle (NAD 200-250 p.p. h/t).</li>
+          <li><strong>Wat mee te nemen:</strong> zonhoed, factor 50, 3+ L water per persoon, stevige schoenen (het duinzand kan snel 50°C worden), fototoestel met reserve-batterij.</li>
+          <li><strong>Volgorde:</strong> Dune 45 <em>eerst</em> (sunrise), dan Deadvlei (voor 10:30 als het licht nog goed staat), dan Big Daddy als je nog puf hebt. Na 11 uur is het brute hitte.</li>
+        </ul>
+      </div>
+
+      <div class="tip">💡 <strong>Solitaire</strong>: op de heenweg (Vr 18) of op de terugweg naar Swakopmund (Zo 20) — beroemd om de appeltaart bij <em>McGregor's Bakery</em>, oude autowrakken en het pompstation midden in de leegte. Perfecte fotostop.</div>
+    </section>
+
+    <section id="swakopmund" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 4 &amp; 5</span>
+        <h2>Zondag 20 &amp; maandag 21 september — Swakopmund</h2>
+      </div>
+      <p class="day-intro">Van rood duinenland naar de koele Atlantische kust. Swakopmund voelt Duits, met palmbomen, Beierse gebouwen en de mist die 's ochtends van zee komt rollen. Perfect voor twee rustigere dagen en de Sandwich Harbour-tour.</p>
+
+      <ul class="schedule">
+        <li><strong>Zo 20 · 07:00</strong> — Uitchecken Little Sossus Campsite (07:00-10:00).</li>
+        <li><strong>Zo 20 · 07:30</strong> — 🚗 <strong>5 uur / 361 km</strong> naar Swakopmund. Route: C19 → C14 → passage door de <strong>Kuiseb Canyon</strong> → Walvis Bay → Swakopmund. Onderweg passeer je de <em>Tropic of Capricorn</em> — obligate fotostop bij het bordje.</li>
+        <li><strong>Zo 20 · 12:30</strong> — Lunchstop, bijv. in Solitaire onderweg (nog een keer 🥧) of bij aankomst in Walvis Bay op <em>The Raft</em> (restaurant op palen boven de lagune).</li>
+        <li><strong>Zo 20 · 14:00</strong> — Check-in <strong>🌛 Alte Brücke Resort</strong> in Swakopmund. Bungalow-achtig, dichtbij de kust, comfortabele reset na campings.</li>
+        <li><strong>Zo 20 · middag</strong> — Ontspannen wandeling langs de <em>Mole</em> (oude pier) en het strand. Koffie bij <em>Slowtown Coffee Roasters</em>. Diner: <em>The Tug</em> (visspecialiteiten in een gestrand sleepboot) — <strong>reserveren!</strong></li>
+
+        <li><strong>Ma 21 · 07:00</strong> — Ontbijt bij <em>Bojos Café</em> of op de resort.</li>
+        <li><strong>Ma 21 · dag</strong> — <strong>🚗 0,5u Walvisbaai (heen en weer)</strong> voor de <strong>Sandwich Harbour tour</strong> (zie kader). Vertrek meestal 09:00, terug rond 15:00-16:00.</li>
+        <li><strong>Ma 21 · avond</strong> — Terug bij Alte Brücke. Diner: <em>Kücki's Pub</em> (rauw &amp; gezellig, kingklip, Duitse portie), <em>Jetty 1905</em> (aan het uiteinde van de pier, best mooie zonsondergang), of <em>Brewer &amp; Butcher</em>.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🐬 Walvis Bay / Sandwich Harbour</h4>
+        <ul>
+          <li><strong>Sandwich Harbour 4×4-tour</strong> — <em>Sandwich Harbour 4×4</em> of <em>Turnstone Tours</em>. Halfdag (±5 uur) NAD 2100-2500 p.p. inclusief lunch en drankjes. <strong>Boeken minimaal 2-3 weken vooraf</strong> — vaak volgeboekt.</li>
+          <li><strong>Waarom:</strong> plek waar de <em>Namib Desert</em> letterlijk in de <em>Atlantische Oceaan</em> loopt. Rijden over de duinen, flamingos in de lagune, zeehonden op de kust. Iconisch.</li>
+          <li><strong>Alternatief:</strong> <em>Catamaran-cruise vanuit Walvis Bay</em> — 3 uur, ±NAD 800-1000, dolfijnen + zeehonden aan boord + oesters + bubbels. Rustiger.</li>
+          <li><strong>Combi:</strong> sommige operators combineren beide op één dag (ochtend catamaran, middag 4×4).</li>
+        </ul>
+      </div>
+
+      <div class="tip">💡 <strong>Alternatieven in Swakopmund</strong> als een dag over is: <em>sandboarden</em> op de duinen buiten de stad, <em>quad biken</em>, <em>skydiven</em> (spectaculair boven de duinen), of gewoon lunchen bij <em>Village Café</em> en de <em>Swakopmund Museum</em> doen. De stad is klein maar heeft charme.</div>
+    </section>
+
+    <section id="spitzkoppe" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 6</span>
+        <h2>Dinsdag 22 september — Spitzkoppe</h2>
+      </div>
+      <p class="day-intro">De "Matterhorn van Namibië" — een reeks graniet-inselbergen die scherp uit de vlakte omhoog steken. Korte rijdag, dus tijd voor een hike en de beroemde sunset bij <em>Arch Rock</em>. Sterrenhemel hier is <strong>ongelooflijk</strong> — geen enkele lichtvervuiling.</p>
+
+      <ul class="schedule">
+        <li><strong>10:00</strong> — Uitchecken Alte Brücke.</li>
+        <li><strong>10:30</strong> — 🚗 <strong>2 uur / 153 km</strong> Swakopmund → Spitzkoppe. Grotendeels op de C28 richting het binnenland, dan D1918 en D3716. Vanaf ongeveer 30 km vóór aankomst zie je de gigantische graniet-koepel al opdoemen.</li>
+        <li><strong>14:00</strong> — Check-in <strong>🌛 Spitzkoppe Rest Camp</strong> (community-run, zeer eenvoudig — long-drop toilet, geen elektriciteit op de meeste stands, bucket-shower). Kies een stand met een <em>rock overhang</em> voor zonwering.</li>
+        <li><strong>15:30</strong> — <strong>Kleine hike</strong> — Bushman's Paradise / Rock Arch loop, ±1,5-2 uur. Rots-tekeningen van de San, ketting-hulp bij een steil stukje. Solide schoenen aan.</li>
+        <li><strong>17:30</strong> — 🌅 <strong>Zonsondergang bij Arch Rock</strong> — de natuurlijke rotsboog. Iconische foto met de zon door de arch. Neem bier/wijn mee.</li>
+        <li><strong>20:00</strong> — Diner bij de kampvuurplek. Kook zelf (koelbox uit Swakopmund) of eet bij het (basic) restaurantje van de rest camp.</li>
+        <li><strong>21:30</strong> — 🌌 <strong>Stargazing</strong>. Melkweg staat pal boven je. Ligmatje uit, sky app aan (Stellarium, Star Walk).</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🏕️ Spitzkoppe Rest Camp — wat je moet weten</h4>
+        <ul>
+          <li><strong>Faciliteiten:</strong> zeer basic. Geen elektriciteit op de stands (headlamp!). Long-drop toiletten per gebied. Emmerdouche bij de <em>ablution block</em>.</li>
+          <li><strong>Reserveren:</strong> via <em>spitzkoppe.com</em>. Kan vaak nog laat, maar in juli-oktober beter 2-3 weken vooraf. Betalen bij aankomst, cash (NAD) preferred.</li>
+          <li><strong>Wat mee:</strong> hoofdlamp, warme laag voor de avond (kan &lt;10°C worden), water (er is bij de gate wel water te koop), gas of vuurhout.</li>
+          <li><strong>Fee:</strong> ±NAD 150 p.p. entree + camping ±NAD 200/stand. Rangers houden orde, community-project.</li>
+        </ul>
+      </div>
+
+      <div class="tip">🌟 <strong>Sterrenhemel-tip:</strong> Spitzkoppe is een van de donkerste plekken van Namibië. Kans op vage Melkweg is 100% bij heldere hemel. Foto: 20-30s belichting, ISO 3200, F2.8, statief. Zonder statief: gewoon liggen en kijken.</div>
+    </section>
+
+    <section id="erongo" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 7 &amp; 8</span>
+        <h2>Woensdag 23 &amp; donderdag 24 september — Erongo (Omandumba)</h2>
+      </div>
+      <p class="day-intro">Twee nachten op <strong>Omandumba Split Apple Campsite</strong> — een aangelegde campsite met een gespleten rotsblok als landmark, midden in het Erongo-gebergte. Woensdag rustig en <em>Ai-Aiba</em> voor activiteiten, donderdag het <strong>San Living Museum</strong> en de <em>Erongo Mountain Winery</em>.</p>
+
+      <ul class="schedule">
+        <li><strong>Wo 23 · 11:00</strong> — Uitchecken Spitzkoppe.</li>
+        <li><strong>Wo 23 · 11:15</strong> — 🚗 <strong>1,5 uur / 88 km</strong> naar Omandumba. Via D3716 → D1930 richting Usakos, dan omhoog het Erongo-gebergte in.</li>
+        <li><strong>Wo 23 · 14:00</strong> — Check-in <strong>🌛 Omandumba Split Apple Campsite</strong>.</li>
+        <li><strong>Wo 23 · middag</strong> — Activiteiten bij <strong>Ai-Aiba Rock Painting Lodge</strong> (buurperceel):
+          <ul>
+            <li>Zwembad/chillen: <em>minimum spend NAD 295 p.p.</em> (drankjes/lunch tellen mee).</li>
+            <li><em>Mountain bike tour</em>: ~NAD 950 p.p., ±3 uur begeleid door de kloven.</li>
+            <li>Wandeling naar rots-schilderingen zelf: gratis vanaf de camping, ±2 uur.</li>
+          </ul>
+        </li>
+        <li><strong>Wo 23 · avond</strong> — Kampvuur, koken op de campsite. Dark sky opnieuw uitstekend.</li>
+
+        <li><strong>Do 24 · ochtend</strong> — <strong>San Living Museum</strong> (naast de camping). Open-air museum waar San (Bushmen) traditionele vaardigheden demonstreren — vuur maken, jachttechnieken, medicinale planten. <em>Zie mail voor prijzen en activiteitenpakketten.</em></li>
+        <li><strong>Do 24 · middag</strong> — Rustig in de camping, boek lezen, siesta.</li>
+        <li><strong>Do 24 · 17:00</strong> — 🍷 <strong>Erongo Mountain Winery</strong> — <em>tasting + diner</em>. Verrassend maar echt: er wordt wijn gemaakt in het Erongo-gebergte. Boek vooraf. ±30-45 min rijden van de camping.</li>
+        <li><strong>Do 24 · 22:00</strong> — Terug op de camping (rustig, geen verkeer, hoofdlichten aan).</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🎨 San Living Museum &amp; rock paintings</h4>
+        <ul>
+          <li><strong>Programma-opties</strong> (staan in de mail): <em>Bushwalk</em>, <em>Traditional Village Tour</em>, <em>Fire Making &amp; Games</em>. Kunnen los of gecombineerd. Reken op NAD 250-500 p.p. per activiteit.</li>
+          <li><strong>Rock paintings</strong> — dit gebied heeft duizenden jaren oude San-schilderingen, sommige heel goed bewaard. Ai-Aiba heeft de bekendste plekken op eigen terrein.</li>
+          <li><strong>Ethisch</strong>: het museum is een <em>community-project</em> waarbij de opbrengsten teruggaan naar de gemeenschap. Geen fooien-schuwheid, betaal wat je waardeert.</li>
+        </ul>
+      </div>
+
+      <div class="tip">🍷 <strong>Erongo Mountain Winery</strong> — reserveer minstens 1 week vooraf voor diner. De <em>wine flight</em> is de moeite waard, ook de rood (verrassend: shiraz-blends van Namibische druiven). Vraag naar het <em>chef's set menu</em>.</div>
+    </section>
+
+    <section id="etosha-west" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 9, 10 &amp; 11</span>
+        <h2>Vrijdag 25 — zondag 27 september — Etosha West (Okaukuejo)</h2>
+      </div>
+      <p class="day-intro">Drie nachten in de <strong>westelijke Etosha</strong>-omgeving. Vrijdag rijden we door naar Etosha Trading Post; zaterdag verhuizen we (10 minuten) naar Etosha Village en beginnen de game drives door het park. Etosha is enorm — twee dagen game drives zijn geen luxe.</p>
+
+      <ul class="schedule">
+        <li><strong>Vr 25 · 11:00</strong> — Uitchecken Omandumba.</li>
+        <li><strong>Vr 25 · 11:30</strong> — 🚗 <strong>4 uur / 302 km</strong> Omandumba → Okaukuejo. Route via Omaruru → Otjiwarongo → Outjo → Andersson Gate. Tank vol in Outjo — laatste grote plaats.</li>
+        <li><strong>Vr 25 · 14:00</strong> — Check-in <strong>🌛 Etosha Trading Post Campsite</strong> (check-in 14:00-19:00). Vlak bij Andersson Gate, comfortabele campsite met zwembad.</li>
+        <li><strong>Vr 25 · avond</strong> — Eerste game-drive rustig doen: <strong>Ombika waterhole</strong> op eigen houtje (net binnen Andersson Gate). Terug voor gate-sluiting (zonsondergang).</li>
+
+        <li><strong>Za 26 · 06:00</strong> — Vroeg op. Uitchecken Etosha Trading Post (06:00-10:00). Ontbijt to-go.</li>
+        <li><strong>Za 26 · 06:30</strong> — <strong>Etosha tour deel 1</strong> — het park in via Andersson Gate. Klassieke route: <em>Okaukuejo → Olifantsbad → Gemsbokvlakte → Homob → Salvadora → Rietfontein</em>. Elk waterhole heeft eigen dieren. Reken op 6-8 uur in het park.</li>
+        <li><strong>Za 26 · 14:00</strong> — 🚗 <strong>10 min / 10 km</strong> naar <strong>🌛 Etosha Village Campsite</strong> (check-in 14:00-19:00). Zwembad en bar zijn hier top na een lange dag.</li>
+        <li><strong>Za 26 · avond</strong> — Diner in de lodge-restaurant of BBQ op de campsite. Vroeg naar bed voor sunrise-drive.</li>
+
+        <li><strong>Zo 27 · 05:30</strong> — 🌅 <strong>Etosha tour deel 2</strong> — de vroege uren zijn de beste voor big cats. Route noordelijker: <em>Okondeka → Nebrowni</em>, of oostelijk richting <em>Halali/Rietfontein</em>. Terug tegen de middag voor lunch en siesta.</li>
+        <li><strong>Zo 27 · middag</strong> — Zwembad Etosha Village. Optioneel: 's avonds nog een korte drive naar <strong>Okaukuejo waterhole</strong> (verlicht 's nachts — zeer bekend om <em>zwarte neushoorns</em>).</li>
+        <li><strong>Zo 27 · avond</strong> — Diner. Vroeg naar bed — morgen naar Namutoni.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🦓 Etosha game-drive-tips</h4>
+        <ul>
+          <li><strong>Zelf rijden mag</strong> in Etosha — het park is goed op te doen met een normale 4×4 of zelfs een 2WD op de hoofdwegen. Blijf altijd in de auto (behalve bij aangegeven pit-stops).</li>
+          <li><strong>Beste tijden:</strong> <em>zonsopgang</em> en <em>laat middag</em> — dieren komen dan drinken. Midden op de dag: siesta (zelfs voor de leeuwen).</li>
+          <li><strong>Waterholes</strong> zijn de sleutel. Rijd van waterhole naar waterhole, ga rustig zitten en wácht — vaak zie je meer door 30 min te wachten dan door door te rijden.</li>
+          <li><strong>Gate-tijden:</strong> gates openen bij zonsopgang, sluiten bij zonsondergang. Precies. Reken je terugtijd ruim in — boete + je slaapt buiten.</li>
+          <li><strong>Entree:</strong> ±NAD 150 p.p./dag + NAD 50/voertuig. Betalen bij de gate.</li>
+          <li><strong>Okaukuejo waterhole</strong> — het meest legendarische in het park. Rustplek 's avonds, verlicht 's nachts. Vaak <em>black rhino</em>, olifanten, jakhalzen.</li>
+        </ul>
+      </div>
+
+      <div class="tip">🎒 <strong>Voor de drive mee:</strong> water (veel), snacks, verrekijker (essentieel), zonhoed, camera + telelens indien mogelijk, en een lege blaas voor je begint — pitstops kunnen ver uit elkaar liggen.</div>
+    </section>
+
+    <section id="etosha-oost" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 12 &amp; 13</span>
+        <h2>Maandag 28 &amp; dinsdag 29 september — Etosha Oost (Namutoni)</h2>
+      </div>
+      <p class="day-intro">We rijden door het park zelf naar de oostkant — één van de mooiste routes van de reis. Twee nachten bij <strong>Mokuti Etosha Lodge (half board)</strong> — een échte lodge na een reeks campings. Chill-modus geactiveerd, spa en zwembad.</p>
+
+      <ul class="schedule">
+        <li><strong>Ma 28 · 05:30</strong> — Uitchecken Etosha Village Campsite (05:30-10:00). Ontbijt to-go.</li>
+        <li><strong>Ma 28 · 06:00</strong> — 🚗 <strong>~4 uur / 168 km</strong> <strong>door Etosha</strong> naar de oostkant. Route: Andersson Gate → <em>Halali</em> → <em>Fischer's Pan</em> → <em>Namutoni</em> → <em>Von Lindequist Gate</em>. Onderweg game drive — reken 6-8 uur inclusief stops bij alle waterholes.</li>
+        <li><strong>Ma 28 · 14:00</strong> — Check-in <strong>🌛 Mokuti Etosha Lodge</strong> — half board (ontbijt + diner inbegrepen). Vlak bij Von Lindequist Gate, dus 's ochtends nog een game-drive doen kan.</li>
+        <li><strong>Ma 28 · avond</strong> — Diner in de lodge. Sundowner bij het zwembad.</li>
+
+        <li><strong>Di 29 · dag</strong> — <strong>Chill-dag &amp; spa</strong>. Mokuti heeft een uitgebreide spa (Namibische massage, hydrotherapy). Zwembad. Wildreservaat op eigen terrein (geen big five maar impala's, giraffen, springbokken op wandelafstand).</li>
+        <li><strong>Di 29 · avond</strong> — Diner (inbegrepen). Vroeg naar bed voor morgen's rit naar Otjiwarongo.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🐘 Etosha Oost — Namutoni-gebied</h4>
+        <ul>
+          <li><strong>Fischer's Pan</strong> — kleinere pan naast de grote, vaak minder toeristisch en goed voor <em>giraffe, zebra, kudu</em>.</li>
+          <li><strong>Namutoni Fort</strong> — historisch Duits fort, nu rustkamp met winkel en zwembad. Leuke pitstop, koffie hier.</li>
+          <li><strong>Klein Namutoni waterhole</strong> — vaak <em>olifantenkuddes</em> in namiddag.</li>
+          <li><strong>Mokuti's eigen wildreservaat</strong> — buiten de lodge, wandelen mag (kaartje bij receptie). Klein en behapbaar na dagen game drives.</li>
+        </ul>
+      </div>
+
+      <div class="tip">💆 <strong>Spa-tip bij Mokuti</strong>: boek een massage <em>vooraf</em> via de mail, ook al kom je pas over 2 dagen. De spa is vaak volgeboekt en zonde als je hem misloopt.</div>
+    </section>
+
+    <section id="otjiwarongo" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 14</span>
+        <h2>Woensdag 30 september — Otjiwarongo district (Aloegrove)</h2>
+      </div>
+      <p class="day-intro">Laatste nacht van de trip. Rijden zuidwaarts naar het Otjiwarongo-district, waar <strong>Aloegrove Safari Lodge</strong> op ons wacht — half board, ontspannen en met een <em>free game drive</em> om 16:00. Perfecte afsluiting.</p>
+
+      <ul class="schedule">
+        <li><strong>10:00</strong> — Uitchecken Mokuti Etosha.</li>
+        <li><strong>10:15</strong> — 🚗 <strong>3 uur / 365 km</strong> Mokuti → Aloegrove. Route via B1 zuidwaarts, langs Tsumeb en Otavi.</li>
+        <li><strong>~14:00</strong> — Check-in <strong>🌛 Aloegrove Safari Lodge</strong> (check-in 14:00-18:30).<br/><em>Adres:</em> Aloegrove 360, Otjiwarongo District — B1, 18 km op de B1 vanaf Otjiwarongo richting Otavi, dan de <em>Aloegrove Lodge Entrance Gate</em>. Bewegwijzerd.</li>
+        <li><strong>16:00</strong> — ⭐ <strong>Gratis game drive Aloegrove</strong> (inbegrepen bij half board). ±2 uur op eigen terrein. Reserveer bij check-in.</li>
+        <li><strong>19:00</strong> — Diner in de lodge (inbegrepen). Sundowners op het terras.</li>
+        <li><strong>21:00</strong> — Kofferpakken. Sterren kijken.</li>
+      </ul>
+
+      <div class="info-box">
+        <h4>🐆 Optioneel in het Otjiwarongo-district</h4>
+        <ul>
+          <li><strong>Crocodile farm Otjiwarongo</strong> — in town, ~40 km van Aloegrove. Leuk voor 1-2 uur, vooral bij het voeren.</li>
+          <li><strong>Cheetah Conservation Fund (CCF)</strong> — ~25 km van Aloegrove. Toonaangevend cheetah-conservation-project, echt indrukwekkend. Tour + jachtluipaarden zien in het buitenverblijf.</li>
+          <li><strong>Waterberg Plateau park</strong> — ~2 uur rijden. Een dagtrip is krap; overweeg dit alleen bij een vervroegde aankomst.</li>
+          <li><strong>Otavi Vineyard</strong> — 113 km van Aloegrove. Alleen als je een tweede wijnproeverij wilt na Erongo. Waarschijnlijk niet nodig.</li>
+        </ul>
+      </div>
+
+      <div class="tip">💡 <strong>Praktisch voor de laatste avond:</strong> pak alvast in zodat je 's ochtends alleen nog het toilet-tasje hoeft mee te nemen. Vlucht is pas 18:20 vanuit Windhoek, maar auto-inleveren om 13:30 betekent vroeg vertrekken.</div>
+    </section>
+
+    <section id="terug" class="section day">
+      <div class="day-header">
+        <span class="day-num">Dag 15 &amp; 16</span>
+        <h2>Donderdag 1 &amp; vrijdag 2 oktober — Terugreis</h2>
+      </div>
+      <p class="day-intro">Aloegrove is bewust dichtbij Windhoek gepland (±3 uur) zodat de laatste rijdag ontspannen kan. Auto inleveren 13:30, transit naar de luchthaven, en dan drie vluchten thuis.</p>
+      <ul class="schedule">
+        <li><strong>Do 1 · 07:00</strong> — Ontbijt in de lodge (half board).</li>
+        <li><strong>Do 1 · 10:00</strong> — Uitchecken Aloegrove.</li>
+        <li><strong>Do 1 · 10:15</strong> — 🚗 <strong>3 uur / 291 km</strong> naar Windhoek. B1 zuidwaarts.</li>
+        <li><strong>Do 1 · 13:30</strong> — <strong>Auto inleveren bij Bushbundu</strong>. Transit naar Hosea Kutako Airport (±45 min).</li>
+        <li><strong>Do 1 · 16:00</strong> — Op de luchthaven. Inchecken + tijd voor koffie/laatste snack.</li>
+        <li><strong>Do 1 · 18:20 → 20:10</strong> — ✈️ <strong>BA6312</strong> WDH → JNB.</li>
+        <li><strong>Do 1 · 21:15 → 07:30 (2/10)</strong> — ✈️ <strong>BA54</strong> JNB → LHR (nachtvlucht).</li>
+        <li><strong>Vr 2 · 11:40 → 14:00</strong> — ✈️ <strong>BA432</strong> LHR → AMS.</li>
+        <li><strong>Vr 2 · ~15:00</strong> — 🚆 Trein Schiphol → Houten. 🏡</li>
+      </ul>
+      <div class="tip">💡 <strong>Souvenirs</strong>: fles Namibische gin (<em>Desert Gin</em>, <em>Kalahari</em>), een handgemaakte houten schaal of biltong voor thuis — verkrijgbaar op Hosea Kutako in de duty-free.</div>
+    </section>
+
+    <section id="reserveren" class="section">
+      <h2>📅 Wat moeten we vooraf reserveren?</h2>
+      <p class="day-intro">Bij een reis van 17 dagen loont het om ver vooruit te plannen. Hieronder wat <strong>echt</strong> moet, wat <em>aan te raden</em> is, en wat je ter plekke kunt regelen.</p>
+
+      <div class="reservation-list">
+        <div class="res-item must">
+          <div class="res-tag">MUST</div>
+          <div class="res-body">
+            <h4>✈️ Vluchten BA (Amsterdam ↔ Windhoek via LHR/JNB)</h4>
+            <p><strong>Wanneer:</strong> 16 sep heen, 1-2 okt terug<br/>
+            <strong>Termijn:</strong> zo vroeg mogelijk (jaar vooraf ideaal). BA57/BA54 op de LHR-JNB-route zijn populair en prijzen stijgen snel.</p>
+          </div>
+        </div>
+
+        <div class="res-item must">
+          <div class="res-tag">MUST</div>
+          <div class="res-body">
+            <h4>🚗 Bushbundu Car Rental</h4>
+            <p><strong>Wanneer:</strong> ophalen 17 sep 13:30, inleveren 1 okt 13:30<br/>
+            <strong>Hoe:</strong> Via <em>bushbundu.com</em> — kies een <strong>4×4 met dakkamer of grond-tent-optie</strong> (afhankelijk van je preferentie voor Sesriem/Spitzkoppe). Verzekering all-inclusive + extra tire cover boeken.<br/>
+            <strong>Termijn:</strong> minimaal 3-4 maanden vooraf voor september (hoogseizoen).</p>
+          </div>
+        </div>
+
+        <div class="res-item must">
+          <div class="res-tag">MUST</div>
+          <div class="res-body">
+            <h4>🏨 Alle overnachtingen</h4>
+            <p><strong>Waar:</strong> Kuiseb House (Windhoek), Sossus Oasis + Little Sossus (Sesriem), Alte Brücke (Swakopmund), Spitzkoppe Rest Camp, Omandumba Split Apple, Etosha Trading Post + Etosha Village, Mokuti Etosha (half board), Aloegrove Safari Lodge (half board).<br/>
+            <strong>Termijn:</strong> hoogseizoen sep-okt — <strong>minimaal 4-6 maanden vooraf</strong>. Sossusvlei-camps en Mokuti zijn het snelst vol.</p>
+          </div>
+        </div>
+
+        <div class="res-item must">
+          <div class="res-tag">MUST</div>
+          <div class="res-body">
+            <h4>🐬 Sandwich Harbour 4×4-tour</h4>
+            <p><strong>Wanneer:</strong> maandag 21 september (dagje Walvis Bay)<br/>
+            <strong>Hoe:</strong> Via <em>Sandwich Harbour 4×4</em> of <em>Turnstone Tours</em> — halfdag, ±NAD 2100-2500 p.p. incl. lunch en drankjes.<br/>
+            <strong>Termijn:</strong> 2-3 weken vooraf minimaal; in hoogseizoen sneller vol.</p>
+          </div>
+        </div>
+
+        <div class="res-item must">
+          <div class="res-tag">MUST</div>
+          <div class="res-body">
+            <h4>🍷 Erongo Mountain Winery — tasting + diner</h4>
+            <p><strong>Wanneer:</strong> donderdag 24 september, avond<br/>
+            <strong>Hoe:</strong> Via <em>erongomountainwinery.com</em> of per mail. Vraag naar tasting-menu of chef's set menu.<br/>
+            <strong>Termijn:</strong> 2-3 weken vooraf.</p>
+          </div>
+        </div>
+
+        <div class="res-item should">
+          <div class="res-tag">AANRADER</div>
+          <div class="res-body">
+            <h4>🎨 San Living Museum activiteiten</h4>
+            <p><strong>Wanneer:</strong> donderdag 24 september (Omandumba)<br/>
+            <strong>Hoe:</strong> Zie mail — programma-opties variëren. Meestal <em>2-3 dagen vooraf</em> genoeg (ook op de dag zelf vaak nog mogelijk).</p>
+          </div>
+        </div>
+
+        <div class="res-item should">
+          <div class="res-tag">AANRADER</div>
+          <div class="res-body">
+            <h4>💆 Spa Mokuti Etosha</h4>
+            <p><strong>Wanneer:</strong> dinsdag 29 september (chill-dag)<br/>
+            <strong>Hoe:</strong> Mail de lodge vooraf voor spa-boeking. Massages en gezichtsbehandelingen zijn snel vol op ontspan-dagen.</p>
+          </div>
+        </div>
+
+        <div class="res-item should">
+          <div class="res-tag">AANRADER</div>
+          <div class="res-body">
+            <h4>🍽️ Restaurants Swakopmund</h4>
+            <p><strong>Wanneer:</strong> zondag 20 en maandag 21 september<br/>
+            <strong>Waar:</strong> <em>The Tug</em>, <em>Kücki's Pub</em>, <em>Jetty 1905</em> — allemaal 1-3 dagen vooraf reserveren, zeker in het weekend.</p>
+          </div>
+        </div>
+
+        <div class="res-item optional">
+          <div class="res-tag">OPTIONEEL</div>
+          <div class="res-body">
+            <h4>🐆 Cheetah Conservation Fund tour</h4>
+            <p><strong>Wanneer:</strong> woensdag 30 september (in Otjiwarongo)<br/>
+            <strong>Hoe:</strong> Via <em>cheetah.org</em> — dagelijkse tours. Alleen mogelijk als je vóór 15:00 in het Otjiwarongo-gebied bent (CCF sluit om 17:00, laatste tour ±15:30).</p>
+          </div>
+        </div>
+
+        <div class="res-item optional">
+          <div class="res-tag">OPTIONEEL</div>
+          <div class="res-body">
+            <h4>🪂 Adrenaline Swakopmund</h4>
+            <p>Sandboarding, quad-biken, skydiven — alle via <em>Ground Rush Adventures</em> of <em>Alter-Action</em>. Ter plekke is meestal genoeg (1 dag vooraf boeken).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip">🗂️ <strong>Tip:</strong> Maak één spreadsheet met alle boekingsbevestigingen, adressen, telefoonnummers en check-in tijden — en print het. In afgelegen gebieden werkt data niet altijd.</div>
+    </section>
+
+    <section id="praktisch" class="section">
+      <h2>🎒 Praktische info</h2>
+      <div class="practical-grid">
+        <div class="card">
+          <h3>💶 Geld</h3>
+          <p><strong>Namibische Dollar (NAD)</strong> = 1:1 gekoppeld aan de Zuid-Afrikaanse Rand (ZAR, ook overal geaccepteerd). €1 ≈ NAD 20 (indicatief).<br/>Pinnen kan in Windhoek, Swakopmund en grotere plaatsen. Op remote plekken: cash (NAD of ZAR). Wissel bij aankomst of pin uit een geldautomaat.</p>
+        </div>
+        <div class="card">
+          <h3>📱 Simkaart &amp; internet</h3>
+          <p><strong>MTC</strong> of <strong>Telecom Namibia</strong> — simkaart met data ±NAD 100, paspoort mee voor registratie. Bereik goed langs hoofdwegen, wisselvallig in Etosha en niet-bestaand in Sesriem/Spitzkoppe. Download offline kaarten (Google Maps + <em>Maps.me</em>).</p>
+        </div>
+        <div class="card">
+          <h3>💧 Water &amp; eten</h3>
+          <p>Leidingwater is meestal veilig in Windhoek/Swakopmund; elders bottled water. Restaurants zijn safe. Straat-eten is beperkt (niet zoals ZO-Azië). Vermijd ijs op remote plekken.</p>
+        </div>
+        <div class="card">
+          <h3>🌡️ Klimaat sep-okt</h3>
+          <p>Voorjaar/vroege zomer op het zuidelijk halfrond. Dagen 25-35°C, nachten kunnen &lt;10°C in de woestijn (Sesriem, Spitzkoppe). Aan de kust <em>koeler</em> door de Benguela-stroom (Swakopmund vaak &lt;20°C, mist 's ochtends).</p>
+        </div>
+        <div class="card">
+          <h3>💉 Gezondheid</h3>
+          <p><strong>Vaccinaties</strong>: DTP + hepatitis A standaard, gele koorts alleen als je uit een geel-koortsland komt (Nederland niet). <strong>Malaria</strong>: het noorden (Etosha e.o.) is malaria-gebied in september — <em>overleg met tropen-arts</em>. Voor overdag lange mouwen + DEET-spray na zonsondergang.</p>
+        </div>
+        <div class="card">
+          <h3>🔌 Stroom &amp; adapters</h3>
+          <p>Namibië gebruikt <strong>Zuid-Afrikaanse stekker type M</strong> (grote 3-pins). Nederlandse stekkers passen NIET — koop een <em>SA-adapter</em> vooraf of in Windhoek/Swakopmund. Spanning 220-240V (compatibel).</p>
+        </div>
+        <div class="card">
+          <h3>🚗 Rijden</h3>
+          <p>Links rijden (zoals VK/ZA). Snelweg maximum 120 km/u, gravel-wegen max 80 km/u (in praktijk 60). Vol tanken bij elke pomp — afstanden zijn groot. <em>Nooit</em> 's nachts rijden (dieren op de weg).</p>
+        </div>
+        <div class="card">
+          <h3>🎒 Pakken (essentials)</h3>
+          <ul class="small">
+            <li>Zonhoed + factor 50 + zonnebril</li>
+            <li>Warme fleece + muts (nachten woestijn!)</li>
+            <li>Verrekijker (voor Etosha en Sossusvlei)</li>
+            <li>Hoofdlamp (essentieel op campings)</li>
+            <li>Solide wandelschoenen + slippers</li>
+            <li>Zwemkleding</li>
+            <li>Powerbank + adapter</li>
+            <li>Anti-mug (Etosha) + first-aid kit</li>
+            <li>Printuitdraaien van boekingen</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="nood" class="section">
+      <h2>🚨 Noodnummers &amp; belangrijke adressen</h2>
+      <p class="day-intro">Voor als het misgaat. Sla deze op in je telefoon vóór vertrek en print een kopie voor in de auto.</p>
+
+      <div class="emergency-grid">
+        <div class="em-card critical">
+          <h3>Nood &amp; hulp</h3>
+          <ul>
+            <li><strong>Politie</strong>: 10111</li>
+            <li><strong>Ambulance</strong>: 211 111 (Windhoek)</li>
+            <li><strong>Brandweer</strong>: 211 111</li>
+            <li><strong>Tourism Namibia noodlijn</strong>: +264 61 296 6000</li>
+            <li><strong>Emergency Medical Rescue (E-Med)</strong>: +264 61 411 600</li>
+          </ul>
+        </div>
+
+        <div class="em-card">
+          <h3>🇳🇱 Nederlandse Ambassade Windhoek</h3>
+          <p>Ondersteunt Nederlandse burgers bij verlies paspoort, ernstige incidenten.<br/>
+          <strong>Adres:</strong> 2 Crohn Street, Windhoek<br/>
+          <strong>Telefoon:</strong> +264 61 226 916<br/>
+          <strong>Noodlijn (24/7)</strong>: +31 247 247 247 (Den Haag, wereldwijd)<br/>
+          <strong>Web:</strong> <a href="https://www.nederlandwereldwijd.nl/landen/namibie" target="_blank" rel="noopener">nederlandwereldwijd.nl/landen/namibie</a></p>
+        </div>
+
+        <div class="em-card">
+          <h3>🏥 Ziekenhuizen (dichtstbijzijnde per stop)</h3>
+          <ul>
+            <li><strong>Windhoek:</strong> Lady Pohamba Private Hospital · +264 61 433 5000</li>
+            <li><strong>Swakopmund:</strong> Cottage Medi-Clinic · +264 64 412 200</li>
+            <li><strong>Otjiwarongo:</strong> Medi-Clinic Otjiwarongo · +264 67 303 734</li>
+            <li><strong>Etosha:</strong> geen ziekenhuis in park — Tsumeb (oost) of Outjo (west)</li>
+            <li><strong>Tsumeb:</strong> Nampol Hospital · +264 67 221 111</li>
+            <li><strong>Outjo:</strong> Outjo State Hospital · +264 67 313 011</li>
+          </ul>
+        </div>
+
+        <div class="em-card">
+          <h3>🚗 Bushbundu Car Rental</h3>
+          <p><strong>Boeking / kantoor:</strong> +264 81 128 8666 <em>(indicatief — check je boeking)</em><br/>
+          <strong>24/7 assistance:</strong> nummer krijg je bij ophalen — <em>bewaar in telefoon</em>.<br/>
+          <strong>Bij pech:</strong> foto's maken, Bushbundu bellen, verzekering-vraag stellen vóór actie ondernemen (band wisselen mag wel, pech-service laten komen). Reserveband + krik zit in de auto.</p>
+        </div>
+
+        <div class="em-card">
+          <h3>🏦 Bank &amp; kaart-blokkade</h3>
+          <ul>
+            <li><strong>ABN AMRO</strong> (24/7 blokkade): +31 20 628 7999</li>
+            <li><strong>ING</strong> (24/7): +31 20 22 888 00</li>
+            <li><strong>Rabobank</strong> (24/7): +31 900 0909</li>
+            <li><strong>Standard Bank Namibia</strong> (grote geldautomaten): overal in Windhoek + Swakopmund</li>
+            <li><strong>FNB</strong>: ook overal, werkt met NL-pas (VISA/Mastercard)</li>
+          </ul>
+        </div>
+
+        <div class="em-card">
+          <h3>🛡️ Verzekering (medisch/reis)</h3>
+          <p>Vul in vóór vertrek:<br/>
+          <strong>Verzekeraar</strong>: ______________________________<br/>
+          <strong>Polisnummer</strong>: ______________________________<br/>
+          <strong>Alarmcentrale</strong>: ______________________________<br/>
+          <em>Tip: maak een foto van de polis en zet in je telefoon + mail.</em></p>
+        </div>
+      </div>
+
+      <div class="tip">📞 <strong>Belangrijk:</strong> +264 = landcode Namibië. Om vanuit NL te bellen: <code>+264 XX XXX XXXX</code>. Vanuit Namibië naar NL: <code>+31 XX XXX XXXX</code>.</div>
+      <div class="tip">🆘 <strong>Registreer je reis bij Buitenlandse Zaken</strong> via de <em>BZ Reis-app</em> of <em>informatieservice.nl</em>. Ze weten dan waar je bent bij een crisis.</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Gemaakt met 🦁 voor Valerie &amp; Juup · Namibië 2026</p>
+    <p class="small">Twende safari!</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
