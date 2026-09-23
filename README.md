@@ -2,6 +2,7 @@
 
 Reisplanning voor Valerie & Juup — Namibië, 16 september t/m 2 oktober 2026.
 
+
 🌐 **Live site:** [juuphietbrink.github.io/namibia](https://juuphietbrink.github.io/namibia/)
 
 Statische website gehost via **GitHub Pages**, met een interactieve kaart (Leaflet + OpenStreetMap) die alle stops laat zien.
